@@ -24,7 +24,7 @@ export default function App() {
             setScreen('CreateAccount')}
         />);
     case 'Home':
-      return <HomeScreen />;
+      return <HomeScreen onLogout={() => setScreen('Login')} />;    
     case 'CreateAccount':
       return <CreateAccountScreen 
       onCreateAccount={() => setScreen('Login')} 
