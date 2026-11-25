@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Button, ScrollView, Text, TextInput, View } from 'react-native';
 import { buscarCotacoes, type Cotacao } from './services/brapi';
+import { auth } from './services/firebase';
+import { signOut } from 'firebase/auth/web-extension';
 
 const acoesIniciais = ['PETR4', 'VALE3', 'ITUB4'];
 
@@ -10,13 +12,15 @@ const moeda = new Intl.NumberFormat('pt-BR', {
 });
 
 
-export function HomeScreen({ onLogout }: { onLogout: () => void }) {
+export function HomeScreen({ onLogout, onSettingScreen }: { onLogout: () => void, onSettingScreen: () => void }) {
   const [acoes, setAcoes] = useState(acoesIniciais);
   const [cotacoes, setCotacoes] = useState<Record<string, Cotacao>>({});
   const [mostrarBusca, setMostrarBusca] = useState(false);
   const [busca, setBusca] = useState('');
   const [carregando, setCarregando] = useState(false);
   const [erro, setErro] = useState('');
+  const [mensagemErro, setMensagemErro] = useState('');
+
 
   async function consultar(tickers: string[]) {
     setCarregando(true);
@@ -72,10 +76,23 @@ export function HomeScreen({ onLogout }: { onLogout: () => void }) {
     }
   }
 
+  async function sair() {
+    setMensagemErro('');
+
+    try{
+        await signOut(auth);
+        onLogout();    
+    }
+    catch (erro){
+        let mensagem = 'Falha ao fazer logout. Tente novamente';
+        setMensagemErro(mensagem);
+    }
+  }
+
   return (
     <ScrollView contentContainerStyle={{ padding: 20, gap: 12 }}>
       <Text style={{ fontSize: 22, fontWeight: 'bold' }}>Cotações da B3</Text>
-      <Button title="Sair" onPress={onLogout} />
+      <Button title="Sair" onPress={sair} />
 
       <Button
         title="Consultar cotações"
@@ -90,7 +107,7 @@ export function HomeScreen({ onLogout }: { onLogout: () => void }) {
 
       {mostrarBusca && (
         <View style={{ gap: 8 }}>
-          <TextInput
+            <TextInput
             value={busca}
             onChangeText={setBusca}
             placeholder="Ex.: MGLU3"
@@ -106,6 +123,13 @@ export function HomeScreen({ onLogout }: { onLogout: () => void }) {
           />
         </View>
       )}
+
+       <View>
+            <Button
+            title="Configurações"
+            onPress={onSettingScreen}
+            />
+        </View>
 
       {carregando && <Text>Consultando...</Text>}
       {erro !== '' && <Text style={{ color: '#b00020' }}>{erro}</Text>}

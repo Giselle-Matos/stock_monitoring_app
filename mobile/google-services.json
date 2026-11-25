@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "483888947833",
+    "project_id": "stock-monitoring-app-327a5",
+    "storage_bucket": "stock-monitoring-app-327a5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483888947833:android:9aca228c286aa25423aaa8",
+        "android_client_info": {
+          "package_name": "com.stockmonitoring.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483888947833-j1dd59dmnkpslishacrhs4dtc2pvo2t1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpDcTgl8FnP_xpI3AY9iOmaG0TLV_HEMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483888947833-j1dd59dmnkpslishacrhs4dtc2pvo2t1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

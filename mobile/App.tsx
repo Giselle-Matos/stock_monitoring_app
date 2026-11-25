@@ -5,8 +5,9 @@ import { useEffect, useState} from 'react';
 import { LoginScreen } from './src/screens/LoginScreen';
 import { HomeScreen } from './src/screens/HomeScreen';
 import { CreateAccountScreen } from './src/screens/CreateAccountScreen';
+import {SettingScreen} from './src/screens/SettingScreen';
 
-type Screen = 'Splash' | 'Login' | 'Home' | 'CreateAccount';
+type Screen = 'Splash' | 'Login' | 'Home' | 'CreateAccount' | 'Setting';
 
 export default function App() {
 
@@ -24,11 +25,17 @@ export default function App() {
             setScreen('CreateAccount')}
         />);
     case 'Home':
-      return <HomeScreen onLogout={() => setScreen('Login')} />;    
+      return <HomeScreen 
+      onLogout={() => setScreen('Login')} 
+      onSettingScreen={() => setScreen('Setting')} />;    
     case 'CreateAccount':
       return <CreateAccountScreen 
       onCreateAccount={() => setScreen('Login')} 
       />;    
+    case 'Setting':
+      return <SettingScreen 
+      onLoginScreen={() => setScreen('Login')} 
+      />;
       default:
       return null;
   }

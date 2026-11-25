@@ -81,7 +81,7 @@ export function LoginScreen(
         )}
       <Button title="Login" onPress={login} />
       <Button title="Create Account" onPress={onCreateAccount} />
-
+        <Button title="Login with Google" onPress={() => {}} />
     </View>
   );
 }
