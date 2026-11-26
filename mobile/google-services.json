@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "483888947833-vdamlmcttq7ioko1pj2i54i9q17ip10f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.stockmonitoring.app",
+            "certificate_hash": "2acad3e6c8bf656c5fb8a23a81e66c04b978ae73"
+          }
+        },
+        {
           "client_id": "483888947833-j1dd59dmnkpslishacrhs4dtc2pvo2t1.apps.googleusercontent.com",
           "client_type": 3
         }

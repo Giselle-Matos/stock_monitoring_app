@@ -1,5 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
 import { SplashScreen } from './src/screens/SplashScreen';
 import { useEffect, useState} from 'react';
 import { LoginScreen } from './src/screens/LoginScreen';
@@ -31,10 +29,12 @@ export default function App() {
     case 'CreateAccount':
       return <CreateAccountScreen 
       onCreateAccount={() => setScreen('Login')} 
+      onLoginScreen={() => setScreen('Login')}
       />;    
     case 'Setting':
       return <SettingScreen 
       onLoginScreen={() => setScreen('Login')} 
+      onHomeScreen={() => setScreen('Home')}
       />;
       default:
       return null;
@@ -43,15 +43,3 @@ export default function App() {
   
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  tinyLogo: {
-    width: 50,
-    height: 50,
-  },
-});

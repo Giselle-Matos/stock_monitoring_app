@@ -8,7 +8,7 @@ export function SplashScreen() {
     <View style={styles.container}>
       <Image
         style={styles.tinyLogo}
-        source={require('../../assets/favicon.png')}      />
+        source={require('../../assets/bull_splash_screen.png')}      />
     </View>
   );
 }
@@ -16,12 +16,13 @@ export function SplashScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ee6e19',
+    backgroundColor: '#FFBD59',
     alignItems: 'center',
     justifyContent: 'center',
   },
   tinyLogo: {
-    width: 50,
-    height: 50,
+    width: 200,
+    height: 200,
+    resizeMode:"contain"
   },
 });

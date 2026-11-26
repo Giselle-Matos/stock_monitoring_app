@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "mobile",
-    "slug": "mobile",
+    "slug": "stock-monitoring-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -12,15 +12,23 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "backgroundImage": "./assets/bull_splash_screen.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.stockmonitoring.app"
+      "package": "com.stockmonitoring.app",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/bull_splash_screen.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "dc696c6c-d824-4095-9c38-a714894b1177"
+      }
+    },
+    "owner": "gisellematoss-team",
+    "plugins": [
+      "@react-native-google-signin/google-signin"
+    ]
   }
 }
