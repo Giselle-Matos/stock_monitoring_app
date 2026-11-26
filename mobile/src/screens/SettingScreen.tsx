@@ -66,7 +66,11 @@ export function SettingScreen(
           <Text style={styles.buttonText}>Delete Account</Text>
       </Pressable>
 
-
+      {mensagemErro !== '' && (
+        <View accessibilityRole="alert" style={styles.errorBox}>
+          <Text style={styles.errorText}>{mensagemErro}</Text>
+        </View>
+      )}
       {precisaEntrarDeNovo && (
         <Button title="Sair e entrar novamente" onPress={sairParaEntrarDeNovo} />
       )}
@@ -90,7 +94,7 @@ export function SettingScreen(
               accessibilityRole="button"
               onPress={deleteAccount}
               style={({ pressed }) => [
-                styles.button,
+                styles.buttonDelete,
                 pressed && { opacity: 0.85 },
               ]}
               >
@@ -133,13 +137,13 @@ const styles = StyleSheet.create({
         borderRadius: 5,
 
     },
-    errorBox:{ 
-        backgroundColor: '#fde8e8', 
-        padding: 12, 
-        borderRadius: 6 
+    errorBox: {
+      backgroundColor: '#FDE8E8',
+      padding: 12,
+      borderRadius: 6,
     },
     errorText: {
-        color: '#8b1a1a' 
+      color: '#8B1A1A',
     },
     button: {
         minHeight: 48,

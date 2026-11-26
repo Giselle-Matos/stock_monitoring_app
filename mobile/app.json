@@ -10,9 +10,10 @@
       "supportsTablet": true
     },
     "android": {
+      "icon": "./assets/bull_splash_screen.png",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "backgroundImage": "./assets/bull_splash_screen.png"
+        "foregroundImage": "./assets/bull_splash_screen.png",
+        "backgroundColor": "#FFBD59"
       },
       "predictiveBackGestureEnabled": false,
       "package": "com.stockmonitoring.app",

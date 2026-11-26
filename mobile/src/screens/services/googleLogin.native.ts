@@ -10,6 +10,10 @@ GoogleSignin.configure({
 export async function entrarComGoogle(): Promise<boolean> {
   await GoogleSignin.hasPlayServices();
 
+  if (GoogleSignin.hasPreviousSignIn()) {
+    await GoogleSignin.signOut();
+  }
+
   const resposta = await GoogleSignin.signIn();
 
   if (!isSuccessResponse(resposta)) {

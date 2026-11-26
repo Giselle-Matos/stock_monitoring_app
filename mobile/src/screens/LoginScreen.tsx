@@ -105,10 +105,11 @@ export function LoginScreen(
             <Text>Password:</Text>
             <TextInput 
             placeholder="Password" 
-            style={styles.input}
+            style={[styles.input, { color: '#000000' }]}
             onChangeText={onChangeSenha}
             value={senha}
             secureTextEntry
+            placeholderTextColor={'black'}
             />
                 {mensagemErro !== '' && (
                 <View

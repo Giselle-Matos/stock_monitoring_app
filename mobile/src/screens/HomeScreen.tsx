@@ -89,11 +89,8 @@ export function HomeScreen({ onLogout, onSettingScreen }: { onLogout: () => void
   }
 
   return (
-    <ScrollView
-      style={styles.tela}
-      contentContainerStyle={styles.conteudo}
-      keyboardShouldPersistTaps="handled"
-    >
+    <View style={styles.tela}>
+      <View style={styles.conteudo}>
       <Text style={styles.titulo}>Cotações B3</Text>
 
       <View style={styles.tabela}>
@@ -163,6 +160,7 @@ export function HomeScreen({ onLogout, onSettingScreen }: { onLogout: () => void
             value={busca}
             onChangeText={setBusca}
             placeholder="Ex.: MGLU3"
+            placeholderTextColor="#000000"
             accessibilityLabel="Ticker da ação"
             autoCapitalize="characters"
             autoCorrect={false}
@@ -200,14 +198,32 @@ export function HomeScreen({ onLogout, onSettingScreen }: { onLogout: () => void
       {mensagemErro !== '' && (
         <Text accessibilityRole="alert" style={styles.aviso}>{mensagemErro}</Text>
       )}
-    </ScrollView>
+    </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  tela: { flex: 1, backgroundColor: '#FFF8EC' },
-  conteudo: { width: '100%', maxWidth: 560, alignSelf: 'center', padding: 20, gap: 12 },
-  titulo: { fontSize: 26, fontWeight: 'bold', color: '#352018' },
+  tela: { 
+    flex: 1, 
+    backgroundColor: '#FFF8EC',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  conteudo: { 
+    width: '100%', 
+    maxWidth: 560, 
+    alignSelf: 'center', 
+    padding: 20, 
+    gap: 12 
+  },
+  titulo: { 
+    fontSize: 26, 
+    fontWeight: 'bold', 
+    color: '#352018', 
+    alignItems: 'center', 
+    marginBottom: 12 
+  },
   tabela: {
     backgroundColor: '#FFFFFF',
     borderWidth: 1,

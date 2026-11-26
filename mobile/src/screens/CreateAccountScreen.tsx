@@ -29,7 +29,7 @@ export function CreateAccountScreen(
         setCadastrando(true);
 
         try{
-            await createUserWithEmailAndPassword(auth, email, senha);
+            await createUserWithEmailAndPassword(auth, emailCadastrado, senha);
         } catch (erro) { 
             let mensagem = 'Falha ao criar a conta. Tente novamente';
 
@@ -83,7 +83,7 @@ export function CreateAccountScreen(
         <Text>Password:</Text>
         <TextInput 
             placeholder="Password" 
-            style={styles.input}
+            style={[styles.input, { color: '#000000' }]}
             onChangeText={onChangeSenhaCadastro}
             value={senha}
             secureTextEntry
